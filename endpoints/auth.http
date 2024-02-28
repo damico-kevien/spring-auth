@@ -1,0 +1,35 @@
+## AUTH
+### CREATE USER
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John",
+  "surname": "Doe",
+  "email": "john.doe@example.com",
+  "address": "123 Main Street",
+  "phoneNumber": "123-456-7890",
+  "username": "johndoe",
+  "password": "password123",
+  "isVerified": true,
+  "isActive": true
+}
+
+### LOGIN
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username" : "johndoe",
+  "password" : "password123"
+}
+
+### LOGOUT
+PUT http://localhost:8080/api/v1/auth/logout
+Content-Type: application/json
+
+{
+  "jwt": {{jwt}},
+  "refreshToken": {{refreshToken}}
+}
