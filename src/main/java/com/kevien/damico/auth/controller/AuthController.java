@@ -53,19 +53,17 @@ public class AuthController {
     }
 
     @PutMapping("/logout")
-    public ResponseEntity<Void> logout(@RequestBody JwtObject jwtObject) {
+    public ResponseEntity<String> logout(@RequestBody JwtObject jwtObject) {
         blackListService.blackListJwt(jwtObject.jwt());
         blackListService.blackListJwt(jwtObject.refreshToken());
         return ResponseEntity.ok(null);
     }
 
-    // TODO: PASSWORD RECOVERY
-
-    private record JwtObject(String jwt, String refreshToken){
+    public record JwtObject(String jwt, String refreshToken){
 
     }
 
-    private record UserLogin(String username, String password) {
+    public record UserLogin(String username, String password) {
 
     }
 }

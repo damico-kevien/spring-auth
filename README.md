@@ -20,6 +20,8 @@ Expected: *Hello! You're authorized!*
 
 ### Testing Logout
 - Go to `endpoints/auth.http`
+- Copy _jwt_ and _refreshToken_ values
+- Past _jwt_ and _refreshToken_ values inside body
 - Run **LOGOUT**
 - Run **TEST** in `endpoints/test.http`
 
