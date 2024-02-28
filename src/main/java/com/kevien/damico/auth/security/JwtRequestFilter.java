@@ -37,7 +37,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String token = getJWTFromRequest(request);
         String blackListedToken = blackListService.getJwtBlackList(token);
         if (blackListedToken != null) {
-            log.error("JwtInterceptor: Token is blacklisted");
+            log.error("JwtRequestFilter: Token is blacklisted");
             response.sendError(401);
         }
         if(token != null && jwtTokenUtil.validateToken(token)) {
